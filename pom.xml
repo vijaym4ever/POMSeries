@@ -6,10 +6,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.opencart.NAL</groupId>
-	<artifactId>Nov2021POMSeries</artifactId>
+	<artifactId>POMSeriesNAL</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>Nov2021POMSeries</name>
+	<name>POMSeriesNAL</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -90,6 +90,13 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>31.1-jre</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
