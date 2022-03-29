@@ -12,8 +12,8 @@ pipeline
         {
             steps 
             {
-                 git 'git@github.com:jglick/simple-maven-project-with-tests.git'
-                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post 
             {
@@ -35,8 +35,8 @@ pipeline
         stage('Regression Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'git@github.com:vijaym4ever/POMSeries.git'
-                    sh "mvn clean install"
+                    git 'https://github.com/vijaym4ever/POMSeries.git'
+                    bat "mvn clean install"
                     
                 }
             }
