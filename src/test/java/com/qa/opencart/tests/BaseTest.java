@@ -9,6 +9,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.qa.opencart.factory.DriverFactory;
@@ -30,6 +31,7 @@ public class BaseTest {
 	ProductInfoPage productInfoPage;
 	SoftAssert softAssert;
 	
+	
 	@BeforeSuite
 	public void beforeSuite() {
 		System.out.println("-----before suite----------");
@@ -50,12 +52,19 @@ public class BaseTest {
 		System.out.println("-----after method----------");
 	}
 	
+	@Parameters({"browser", "browserversion"})
 	@BeforeTest
-	public void setUp() {
+	public void setUp(String browser, String browserVersion) {
 		df = new DriverFactory();
 		System.out.println("new driver created---before Test");
 		prop = df.init_prop();
 		//driver = df.init_driver("chrome");
+		
+		if(browser!=null) {
+			prop.setProperty("browser", browser);
+			prop.setProperty("browserversion", browserVersion);
+		}
+		
 		driver = df.init_driver(prop);
 		loginPage = new LoginPage(driver);
 		softAssert = new SoftAssert();
