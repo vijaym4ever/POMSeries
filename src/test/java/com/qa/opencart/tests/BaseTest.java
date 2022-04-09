@@ -59,7 +59,6 @@ public class BaseTest {
 		System.out.println("new driver created---before Test");
 		prop = df.init_prop();
 		//driver = df.init_driver("chrome");
-		
 		if(browser!=null) {
 			prop.setProperty("browser", browser);
 			prop.setProperty("browserversion", browserVersion);
